@@ -1,5 +1,5 @@
 import { GetPlaceDetails, PHOTO_REF_URL } from "@/service/GlobalApi";
-import { TicketPercent } from "lucide-react";
+// import { TicketPercent } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
