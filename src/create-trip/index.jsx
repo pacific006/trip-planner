@@ -62,6 +62,7 @@ function CreateTrip() {
 
       return;
     }
+    toast("Please wait...");
     setLoading(true);
     const FINAL_PROMT = AI_PROMT.replace(
       "{location}",
@@ -82,7 +83,7 @@ function CreateTrip() {
       }
 
       setGeneratedPlan(text);
-      console.log(text);
+     
       await SaveAiTrip(text);
     } catch (err) {
       toast("Failed to generate trip");
@@ -199,7 +200,11 @@ function CreateTrip() {
       </div>
 
       <div className="my-10 flex justify-end">
-        <Button disabled={loading} onClick={onGenerateTrip}>
+        <Button
+          disabled={loading}
+          onClick={onGenerateTrip}
+          className="cursor-pointer"
+        >
           {loading ? (
             <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
           ) : (

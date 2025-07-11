@@ -36,6 +36,7 @@ function PlaceCardItem({ place }) {
           <h2 className="font-bold text-lg ">{place.place_name}</h2>
           <p className="text-sm text-gray-400">{place.place_details}</p>
           <h2 className="mt-2">🕙{place.time_to_travel}</h2>
+          <h2 className="mt-2">🎟️{place.ticket_pricing}</h2>
         </div>
       </div>
     </Link>

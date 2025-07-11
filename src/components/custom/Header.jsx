@@ -11,11 +11,14 @@ import {
   DialogContent,
   DialogDescription,
   DialogHeader,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
   const [openDailog, setOpenDailog] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("user"));
@@ -46,7 +49,13 @@ function Header() {
 
   return (
     <div className="p-2 shadow-sm flex justify-between items-center px-3">
-      <img src="/logo.svg" />
+      <a href="/">
+        <div className="flex">
+          <img src="/travel-logo.svg" className="h-13" />
+          <h1 className="font-bold text-3xl m-2 font-serif">AItinerary</h1>
+        </div>
+      </a>
+
       <div>
         {user ? (
           <div className="flex items-center gap-3">
@@ -76,7 +85,8 @@ function Header() {
                   onClick={() => {
                     googleLogout();
                     localStorage.clear();
-                    window.location.reload();
+                    // window.location.reload();
+                    navigate("/");
                   }}
                 >
                   Logout
@@ -97,10 +107,17 @@ function Header() {
       <Dialog open={openDailog}>
         <DialogContent>
           <DialogHeader>
-            {/* <DialogTitle>Are you absolutely sure?</DialogTitle> */}
+            <DialogTitle>
+              {" "}
+              <div className="flex">
+                <img src="/travel-logo.svg" className="h-13" />
+                <h1 className="font-bold text-3xl m-2 font-serif">
+                  AItinerary
+                </h1>
+              </div>
+            </DialogTitle>
             <DialogDescription>
-              <img src="/logo.svg" />
-              <h2 className="font-bold text-lg mt-7">Sign In With Google</h2>
+              <h2 className="font-bold text-lg mt-1">Sign In With Google</h2>
               <p>Sign in to the App with Google authentication securily</p>
               <Button
                 onClick={login}
