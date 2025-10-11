@@ -11,7 +11,7 @@ export async function main(FINAL_PROMT) {
     responseMimeType: "application/json",
   };
   // const model = "gemini-2.5-flash-preview-04-17";
-  const model = "models/gemini-1.5-pro";
+  const model = "gemini-2.5-flash";
   const contents = [
     {
       role: "user",
